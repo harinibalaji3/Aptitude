@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <button id="show-login-btn">Login</button>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" maxlength="8" required>
+                </div>
+                <button type="submit">Login</button>
+                <p id="error-message"></p>
+            </form>
+        </div>
+    <script>
+        const showLoginBtn = document.getElementById('show-login-btn');
+        const loginContainer = document.querySelector('.login-container');
+        const loginForm = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+
+        showLoginBtn.addEventListener('click', function() {
+            loginContainer.style.display = 'block';
+            showLoginBtn.style.display = 'none';
+        });
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Validate password length
+            if (password.length !== 8) {
+                errorMessage.textContent = 'Password must be exactly 8 characters long.';
+                errorMessage.style.color = 'red';
+                
+
+            } else {
+                // If password is valid, redirect to home.html
+                errorMessage.textContent = ''; // Clear any previous error message
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 300);
+            }
+        });
+
+        // Clear error message when user starts typing in the password field
+        document.getElementById('password').addEventListener('input', function() {
+            errorMessage.textContent = '';
+        });
+    </script>
+</body>
+</html>

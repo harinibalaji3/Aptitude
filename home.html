@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantitative Aptitude Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="container">
+    <h1 style="color: green;">Quantitative Aptitude Quiz</h1>
+    <div id="topic-selection">
+      <h2 style="color: green;">Select a Topic</h2>
+      <div class="topics" style="color: deeppink;">
+      </div>
+    </div>
+
+    <div id="quiz-container" class="hidden">
+      <div id="timer">Time Left: <span id="time">3:00</span></div>
+      <div id="question"></div>
+      <div id="options"></div>
+      <button id="next-button">Next</button>
+      <div id="explanation" class="hidden"></div>
+    </div>
+
+    <div id="result-container" class="hidden">
+      <h2 style="color: firebrick;">Quiz Result</h2>
+      <p>Your Score: <span id="score">0</span>/20</p>
+      <button id="restart-button">Restart Quiz</button>
+    </div>
+  </div>
+
+  <script src="question.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
